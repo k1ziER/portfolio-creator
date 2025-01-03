@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../new/authorization-registration.css}">
+</head>
+<body>
+    <div class="wrapper"> 
+        <form th:method="POST" th:action="@{/registration}" enctype="multipart/form-data" th:object="${people}">
+            <h2>Регистрация</h2>
+            <div class="input-field">
+                <input type="text"  th:field="*{name}" th:classappend="${#fields.hasErrors('name')} ? 'field-error' : ''" >
+                <label >Укажите имя</label>
+            </div>
+
+            <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+            
+            <div class="input-field">
+                <input type="text"  th:field="*{surname}" th:classappend="${#fields.hasErrors('surname')} ? 'field-error' : ''" >
+                <label >Укажите фамилию</label>
+            </div>
+
+            <div class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error</div>
+            
+            <div class="input-field">
+                <input type="text"  th:field="*{description}">
+                <label >Добавьте описание</label>
+            </div>
+
+            <div style="margin-top: 35px;" class="input-field">
+                <input type="file" name="imageFile" id="imageFile" accept="image/*">
+                <label style="padding-bottom: 10px;" for="imageFile">Выберите картинку для профиля</label>
+            </div>
+            <div style="margin-top: 35px;" >
+                <input type="file" name="multipartFiles" multiple id="file" accept="file/*">
+                <label style="padding-bottom: 10px;" for="file">Выберите файл проекта для профиля</label>
+            </div>
+            <div style="margin-top: 35px;" >
+                <input type="file" name="multipartFiles" multiple id="file1" accept="file/*">
+                <label style="padding-bottom: 10px;" for="file">Выберите файл проекта для профиля</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text"  th:field="*{email}" th:classappend="${#fields.hasErrors('email')} ? 'field-error' : ''"  multiple>
+                <label >Введите почту</label>
+            </div>
+
+            <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
+
+            <div class="input-field">
+                <input type="text" th:field="*{password}"  th:classappend="${#fields.hasErrors('password')} ? 'field-error' : ''" >
+                <label >Введите пароль</label>
+            </div>
+
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+
+            <div class="input-field">
+                <input type="text"  th:field="*{phone}" th:classappend="${#fields.hasErrors('phone')} ? 'field-error' : ''" >
+                <label >Введите телефон</label>
+            </div>
+
+            <div class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</div>
+            
+            <input type="hidden" th:name="_csrf.parameterName" th:value="${_csrf.token}">
+            <button type="submit">Зарегистрироваться</button>
+    
+            <div class="error" th:if="${errorMessage}">
+                <p th:text="${errorMessage}"></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

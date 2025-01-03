@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Логин</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/new/authorization-registration.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <form th:method="POST" th:action="@{/login}" th:object="${enter}">
+            <h2>Вход в аккаунт</h2>
+            <div class="input-field">
+                <input type="text" name="email" id="email" th:field="*{email}" th:classappend="${#fields.hasErrors('email')} ? 'field-error' : ''" >
+                <label for="email">Введите почту</label>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+            <div class="input-field">
+                <input type="text" name="password" id="password" th:field="*{password}" th:classappend="${#fields.hasErrors('password')} ? 'field-error' : ''" >
+                <label for="password">Укажите пароль</label>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+            <input type="hidden" th:name="_csrf.parameterName" th:value="${_csrf.token}">
+            <button type="submit">Войти</button>
+        </form>
+        <div class = "error" th:if="${param.error}">
+            <p>Неверное имя пользователя или пароль.</p>
+        </div>
+        <div class="register">
+            <p style="display: inline-block;">Нет аккаунта?</p>
+            <a style="display: inline-block;" href="/registration">Зарегистрироваться</a>
+        </div>
+    </div>
+</body>
+</html>

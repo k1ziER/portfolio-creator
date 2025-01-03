@@ -1,0 +1,127 @@
+body {
+    background-color: #e4e4e7; /* Белый фон страницы */
+    margin: 10px; /* Убираем отступы по умолчанию */
+    font-family: Arial, sans-serif; /* Шрифт документа */
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    background-color: #5971a2;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.input-field {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    background: #586370;
+    color: #E0DAD6;
+    font-weight: 600;
+    border: solid 1px #394655;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    height:350px;
+    justify-content: space-evenly;
+    min-width: 400px;
+    width: 50%;
+    background-color: #c8c8ce;
+    border: solid 1px #b3b3b8;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.little-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.image-frame {
+    border: 3px solid #656580;
+    padding: 7px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-description {
+    flex: 1;
+    display: flex;
+    margin-inline: 10px 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.user-description{
+    margin-top: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    background-color: #a0a0a5;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.files-info{
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.files-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.wrapper a{
+    color: #0070C0;
+    text-decoration: underline;
+}
+
+.admin-panel {
+    color: #6084cd;
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.edit-link{
+    color: #6084cd;
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}

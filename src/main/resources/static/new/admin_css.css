@@ -1,0 +1,56 @@
+body {
+    background-color: #e4e4e7;
+    margin: 10px;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: #5971a2;
+}
+
+table {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    color:#5a5a5c;
+    background-color: #dfdfe4;
+}
+
+tr:nth-child(odd) {
+    color:#5a5a5c;
+    background-color: #eeeef1;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #b5b5c5;
+}
+
+.ban-button {
+    background: #586370;
+    color: #E0DAD6;
+    font-weight: 600;
+    border: solid 1px #394655;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.edit-link {
+    text-align: center;
+    color: #0070C0;
+}
+
+.wrapper a{
+    color: #0070C0;
+    text-decoration: underline;
+}

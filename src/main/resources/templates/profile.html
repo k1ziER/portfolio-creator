@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${people.getName()} + ' ' + ${people.getSurname()}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/new/profile_css.css}">
+</head>
+<body>
+
+    <div class="search-bar">
+        <form th:action="@{/profile/{id}/search(id=${people.id})}" th:method="POST">
+            <input class="input-field" placeholder="Поиск" type="text" name="title">
+            <button type="submit">Перейти</button>
+        </form>
+    </div>
+    <div class="wrapper">
+        <div class="little-wrapper">
+            <div class="image-frame" th:if="${people.getImage() != null}">
+                <img th:src="@{/image/{id}(id=${people.getImage.getId()})}" alt="Profile Image" height="250px" />
+            </div>
+            <div class="image-frame" th:if="${people.getImage() == null}">
+                <img src="/imgs/logo.jpg" height="250px" alt="Default Image" style="border-radius: 50%;" />
+            </div>
+
+            <div class="admin-panel" th:if="${people.isAdmin(people)}">
+                <a href="/admin">Панель администратора</a>
+            </div>
+            <a class="edit-link" th:href="@{/profile/{id}/edit(id=${people.getId()})}">Редактировать профиль</a>
+        </div>
+    <div class="profile-description">
+        <p style="color:#5a5a5c; font-weight: 600; margin-left: 20px" class="profile-surname" th:text="${people.getSurname()}">Фамилия</p>
+        <p style="color:#5a5a5c; font-weight: 600; margin-left: 20px" class="profile-name" th:text="${people.getName()}">Имя</p>
+        <div class="user-description">
+            <p style="color:#5a5a5c; font-weight: 400;" class="profile-description-text" th:text="${people.getDescription()}">Описание</p>
+        </div>
+    </div>
+    <div class="files-content">
+        <th:block th:if="${people.getFiles() != null}">
+            <div class="files-info">
+                <p style="color:#5a5a5c; font-weight: 600; margin-right: 5px">Количество файлов:</p>
+                <p style="color:#5a5a5c" th:text="${people.getFiles() != null} ? ${#lists.size(people.getFiles())} : 0"></p>
+            </div>
+            <ul>
+                <li style="color:#5a5a5c" th:each="file : ${people.getFiles()}">
+                    <a th:href="@{/file/{id}(id=${file.id})}" th:text="${file.getFileName()}"></a>
+                </li>
+            </ul>
+        </th:block>
+        <th:block th:if="${people.getFiles() == null}">
+            <p>Файлы отсутствуют.</p>
+        </th:block>
+    </div>
+    </div>
+</body>
+</html>
